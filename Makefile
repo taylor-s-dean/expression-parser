@@ -30,16 +30,16 @@ expression-parser: $(OBJ)
 	$(CXX) -o $@ $^ $(CFLAGS) $(LIBS)
 
 pre-build:
-	@if [ ! -d "./third_party/boost_1_83_0" ] ; then                                              \
+	@if [ ! -d "./third_party/boost_1_83_0" ] ; then                                                    \
 		echo "INFO: Downloading boost libraries";                                                   \
 		wget https://boostorg.jfrog.io/artifactory/main/release/1.83.0/source/boost_1_83_0.tar.bz2; \
 		tar --bzip2 -xf boost_1_83_0.tar.bz2;                                                       \
-		mkdir third_party;                                                                          \
+		mkdir -p third_party obj;                                                                      \
 		mv boost_1_83_0 third_party/;                                                               \
 		rm boost_1_83_0.tar.bz2;                                                                    \
-	else                                                                                          \
+	else                                                                                                \
 		echo "INFO: No need to download boost libraries";                                           \
 	fi
 
 clean:
-	rm -f $(ODIR)/*.o expression-parser
+	rm -rf $(ODIR) expression-parser
