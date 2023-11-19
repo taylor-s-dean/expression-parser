@@ -5,6 +5,8 @@ CFLAGS = -I$(IDIR) \
 		 -Wno-logical-op-parentheses
 
 ODIR = obj
+LDIR = ./lib
+SDIR = ./src
 
 LIBS =
 
